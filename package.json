@@ -1,0 +1,17 @@
+{
+  "name": "kudos",
+  "version": "0.0.0",
+  "description": ":clap: kudos done right - made simple, so simple it hurts.",
+  "repository": "tunnckoCore/kudos",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT", 
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "assertit": "^0.1.0"
+  },
+  "keywords": []
+}
