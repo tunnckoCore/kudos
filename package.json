@@ -1,16 +1,21 @@
 {
   "name": "kudos",
   "version": "0.0.0",
-  "description": ":clap: kudos done right - made simple, so simple it hurts.",
+  "description": ":star2: kudos done right - made simple, so simple it hurts.",
   "repository": "tunnckoCore/kudos",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "npm run bundle && npm run bundle-uglify && npm run standalone && npm run standalone-uglify",
+    "bundle": "browserify -do dist/kudos.js index.js",
+    "bundle-uglify": "uglifyjs -m -c -o dist/kudos.min.js dist/kudos.js",
+    "standalone": "browserify -s Kudos -do dist/kudos.standalone.js index.js",
+    "standalone-uglify": "uglifyjs -m -c -o dist/kudos.standalone.min.js dist/kudos.standalone.js",
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "dual-emitter": "^0.2.0"
+    "dush": "~1.0.0"
   },
   "devDependencies": {
     "assertit": "^0.1.0"

@@ -7,7 +7,7 @@
 
 'use strict'
 
-var DualEmitter = require('dual-emitter')
+var Dush = require('dush')
 
 module.exports = Kudos
 
@@ -16,12 +16,12 @@ function Kudos (opts) {
     return new Kudos(opts)
   }
 
-  DualEmitter.call(this)
+  Dush.call(this)
   this.options = typeof opts === 'object' ? opts : {}
   this.defaults()
 }
 
-DualEmitter.mixin(Kudos.prototype)
+Dush.mixin(Kudos.prototype)
 
 Kudos.prototype.addClass = function addClass (el, name) {
   if (el.classList) {
@@ -43,9 +43,10 @@ Kudos.prototype.removeClass = function removeClass (el, name) {
 
 Kudos.prototype.defaults = function () {
   var self = this
+  var isDom = this._d
   this._element = this.options.el || this.options.element
 
-  if (!this._isDom(this._element)) {
+  if (!isDom(this._element)) {
     throw new TypeError('expect DOM element')
   }
 
@@ -76,6 +77,8 @@ Kudos.prototype.defaults = function () {
 
 Kudos.prototype.startTimer = function () {
   var self = this
+  var time = this.options.duration
+  var duration = typeof time === 'number' ? time : 1500
 
   this.timeout = setInterval(function () {
     self._element = self.removeClass(self._element, 'active')
@@ -87,7 +90,7 @@ Kudos.prototype.startTimer = function () {
       .off('mouseout', self.end, self._element)
       .off('touchstart', self.startTouch, self._element)
       .off('touchend', self.end, self._element)
-  }, this.options.duration || 1000)
+  }, duration)
 
   return this
 }
