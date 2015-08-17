@@ -7,16 +7,28 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "npm run bundle && npm run bundle-uglify && npm run standalone && npm run standalone-uglify",
+    "bundle": "browserify -do dist/kudos.js index.js",
+    "bundle-uglify": "uglifyjs -m -c -o dist/kudos.min.js dist/kudos.js",
+    "standalone": "browserify -s kudos -do dist/kudos.standalone.js index.js",
+    "standalone-uglify": "uglifyjs -m -c -o dist/kudos.standalone.min.js dist/kudos.standalone.js",
     "test": "standard && node test.js"
   },
   "dependencies": {
     "dush": "^1.2.0"
   },
   "devDependencies": {
-    "assertit": "^0.1.0"
+    "assertit": "^0.1.0",
+    "browserify": "^11.0.1",
+    "uglify-js": "^2.4.24"
   },
   "files": [
     "index.js"
   ],
-  "keywords": []
+  "keywords": [],
+  "standard": {
+    "ignore": [
+      "dist/**"
+    ]
+  }
 }
