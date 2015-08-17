@@ -9,8 +9,6 @@
 
 var Dush = require('dush')
 
-module.exports = Kudos
-
 function Kudos (opts) {
   if (!(this instanceof Kudos)) {
     return new Kudos(opts)
@@ -18,36 +16,18 @@ function Kudos (opts) {
 
   Dush.call(this)
   this.options = typeof opts === 'object' ? opts : {}
-  this.defaults()
+  this._defaults()
 }
 
 Dush.mixin(Kudos.prototype)
 
-Kudos.prototype.addClass = function addClass (el, name) {
-  if (el.classList) {
-    el.classList.add(name)
-  } else {
-    el.className += ' ' + name
-  }
-  return el
-}
-
-Kudos.prototype.removeClass = function removeClass (el, name) {
-  if (el.classList) {
-    el.classList.remove(name)
-  } else {
-    el.className = el.className.replace(new RegExp('(^|\\b)' + name.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
-  }
-  return el
-}
-
-Kudos.prototype.defaults = function () {
+Kudos.prototype._defaults = function _defaults () {
   var self = this
   var isDom = this._d
   this._element = this.options.el || this.options.element
 
   if (!isDom(this._element)) {
-    throw new TypeError('expect DOM element')
+    throw new TypeError('expect DOM `opts.element` or `opts.el` in options')
   }
 
   this.start = function start (evt) {
@@ -77,7 +57,7 @@ Kudos.prototype.defaults = function () {
 
 Kudos.prototype.startTimer = function () {
   var self = this
-  var time = this.options.duration
+  var time = this.options.duration || this.options.delay
   var duration = typeof time === 'number' ? time : 1500
 
   this.timeout = setInterval(function () {
@@ -98,4 +78,27 @@ Kudos.prototype.startTimer = function () {
 Kudos.prototype.resetTimer = function () {
   clearInterval(this.timeout)
   return this
+}
+
+Kudos.prototype.addClass = function addClass (el, name) {
+  if (el.classList) {
+    el.classList.add(name)
+  } else {
+    el.className += ' ' + name
+  }
+  return el
+}
+
+Kudos.prototype.removeClass = function removeClass (el, name) {
+  if (el.classList) {
+    el.classList.remove(name)
+  } else {
+    el.className = remove(el, name)
+  }
+  return el
+}
+
+function remove (el, name) {
+  var re = new RegExp('(^|\\b)' + name.split(' ').join('|') + '(\\b|$)', 'gi')
+  return el.className.replace(re, ' ')
 }

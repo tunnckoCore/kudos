@@ -1,6 +1,6 @@
 # [kudos][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
-> :star2: kudos done right - made simple, so simple it hurts.
+> kudos done right - unopinionated, made simple, so simple it hurts!
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
@@ -16,7 +16,27 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var kudos = require('kudos')
+var Kudos = require('kudos')
+
+var kudos = new Kudos({
+  element: document.querySelector('#kudos')
+  delay: 1000
+})
+
+kudos
+  .on('kudo:in', function () {
+    // you can start styling your kudo
+    // change classes and etc
+    console.log('in')
+    // `.active` class is set by default
+  })
+  .on('kudo:out', function () {
+    console.log('out')
+  })
+  .on('kudo:complete', function () {
+    // `.complete` class is set by default
+    console.log('complete')
+  })
 ```
 
 
@@ -72,4 +92,4 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [freenode-img]: https://img.shields.io/badge/freenode-%23charlike-5654a4.svg
 
 [new-message-url]: https://github.com/tunnckoCore/messages
-[new-message-img]: https://img.shields.io/badge/send%20me-message-green.svg
+[new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg
