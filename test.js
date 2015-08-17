@@ -13,5 +13,5 @@ var test = require('assertit')
 var kudos = require('./index')
 
 test('kudos:', function () {
-  // body
+  console.log(kudos)
 })
