@@ -33,11 +33,19 @@ kudos
   .on('kudo:out', function () {
     console.log('out')
   })
-  .on('kudo:complete', function () {
+  .once('kudo:complete', function () {
     // `.complete` class is set by default
     console.log('complete')
   })
 ```
+
+
+## Related
+- [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Command-line app for generating API docs from code comments. Can be used as API of `helper-apidocs` package.
+- [dush](https://github.com/tunnckocore/dush): Minimalist 1.5kb event delegation for the browser (IE8+) and nodejs.
+- [gitclone-cli](https://github.com/tunnckocore/gitclone-cli): Git clone github repository with pattern like `user/repo#branch`
+- [minigrid](http://alves.im/minigrid): Minimal 2kb zero dependency cascading grid layout
+- [minimist-plugins](https://github.com/jonschlinkert/minimist-plugins): Simple wrapper to make minimist pluggable. ~20 sloc.
 
 
 ## Contributing
