@@ -12,6 +12,22 @@ npm test
 ```
 
 
+## Features
+- minimal, yet simple to use - [demo](http://jsbin.com/qiqirunoju/1/edit?js,console,output) in jsbin
+- no jQuery, zero dependencies (only event emitter) - just 3.5kb minified
+- works on every browser, should **even works on IE8**
+- plays well with Browserify and BrowserifyCDN
+- available on CDNs - JSDelivr.com, BrowserifyCDN, RawGit and CDNjs.com
+
+
+## In the browser
+> Just include the script tag with path to `dist/kudos.standalone.min.js`
+
+```html
+<script scr="https://cdn.rawgit.com/tunnckoCore/kudos/master/dist/kudos.standalone.min.js"></script>
+```
+
+
 ## Usage
 > For more use-cases see the [tests](./test.js)
 
