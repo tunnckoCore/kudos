@@ -25,7 +25,15 @@
   "files": [
     "index.js"
   ],
-  "keywords": [],
+  "keywords": [
+    "hurt",
+    "kudo",
+    "kudojs",
+    "kudos",
+    "kudosjs",
+    "simple",
+    "unopinionated"
+  ],
   "standard": {
     "ignore": [
       "dist/**"
