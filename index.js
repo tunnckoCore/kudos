@@ -40,7 +40,8 @@ Kudos.prototype._defaults = function _defaults () {
   }
   this.end = function end (evt) {
     self._element = self.removeClass(self._element, 'active')
-    self.resetTimer().emit('kudo:out', evt)
+    self.resetTimer()
+    self.emit('kudo:out', evt)
   }
   this.startTouch = function startTouch (evt) {
     if (evt.touches.length === 1) {
