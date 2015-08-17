@@ -15,7 +15,7 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "dush": "^1.2.0"
+    "dush": "^1.3.0"
   },
   "devDependencies": {
     "assertit": "^0.1.0",

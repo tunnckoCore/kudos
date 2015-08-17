@@ -9,6 +9,8 @@
 
 var Dush = require('dush')
 
+module.exports = Kudos
+
 function Kudos (opts) {
   if (!(this instanceof Kudos)) {
     return new Kudos(opts)
