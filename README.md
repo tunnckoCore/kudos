@@ -13,7 +13,7 @@ npm test
 
 
 ## Features
-- minimal, yet simple to use - [demo](http://jsbin.com/qiqirunoju/1/edit?js,console,output) in jsbin
+- minimal, yet simple to use - [demo](http://jsbin.com/nafaqejoyo/2/edit?js,console,output) in jsbin
 - no jQuery, zero dependencies (only event emitter) - just 3.5kb minified
 - works on every browser, should **even works on IE8**
 - plays well with Browserify and BrowserifyCDN
